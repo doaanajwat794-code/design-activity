@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Interior Design Phases · Activity</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.0.0/dist/tabler-icons.min.css">
+<style>
+:root{
+  --bg:#F0F7F7;
+  --card:#ffffff;
+  --card2:#EBF4F4;
+  --txt:#1a2a2a;
+  --txt2:#5a7070;
+  --txt3:#8aA0A0;
+  --bdr:rgba(0,60,90,0.1);
+  --bdr2:rgba(0,60,90,0.18);
+  --r:8px;
+  --rl:12px;
+  --font:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+body{background:var(--bg);min-height:100vh;padding:1rem;font-family:var(--font);}
+.wrap{max-width:580px;margin:0 auto;}
+
+.header{background:#003C5A;padding:1.125rem 1.25rem 1rem;border-radius:var(--rl);margin-bottom:1.25rem;}
+.header p.sub{font-size:10px;color:#7ABCCC;margin:0 0 3px;letter-spacing:0.08em;text-transform:uppercase;}
+.header h1{font-size:18px;font-weight:600;color:#E8F6F8;margin:0 0 2px;}
+.header p.desc{font-size:12px;color:#5A9AAA;margin:0;}
+.header .line{width:28px;height:2px;background:#3ABEBE;margin-top:10px;border-radius:2px;}
+
+.legend{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-bottom:1.25rem;}
+.lc{text-align:center;padding:8px 3px;border-radius:var(--r);border:0.5px solid;}
+.lc span{font-size:16px;font-weight:600;display:block;}
+.lc small{font-size:9px;display:block;margin-top:2px;}
+.l1{background:rgba(0,60,90,0.09);border-color:rgba(0,60,90,0.22);}
+.l1 span{color:#003C5A;} .l1 small{color:#003C5A;opacity:0.7;}
+.l2{background:rgba(58,190,190,0.1);border-color:rgba(58,190,190,0.3);}
+.l2 span{color:#1A7A7A;} .l2 small{color:#1A7A7A;opacity:0.8;}
+.l3{background:rgba(232,125,160,0.1);border-color:rgba(232,125,160,0.3);}
+.l3 span{color:#A03060;} .l3 small{color:#A03060;opacity:0.8;}
+.l4{background:rgba(144,144,208,0.1);border-color:rgba(144,144,208,0.3);}
+.l4 span{color:#4040A0;} .l4 small{color:#4040A0;opacity:0.8;}
+.l5{background:rgba(208,200,64,0.1);border-color:rgba(208,200,64,0.4);}
+.l5 span{color:#686800;} .l5 small{color:#686800;opacity:0.8;}
+
+.meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;}
+#prog{font-size:13px;color:var(--txt2);}
+#pts{font-size:13px;font-weight:600;color:#1A8A6A;}
+
+.tc{background:var(--card);border:0.5px solid var(--bdr);border-radius:var(--rl);padding:1rem;margin-bottom:10px;transition:border-color 0.25s,background 0.25s;}
+.tc.ok{border-color:#1A9A7A;background:rgba(26,154,122,0.06);}
+.tc.bad{border-color:#D84040;background:rgba(216,64,64,0.06);}
+.tc p{font-size:14px;color:var(--txt);line-height:1.65;}
+
+.pr{display:flex;gap:5px;margin-top:10px;flex-wrap:wrap;}
+.pb{border:0.5px solid var(--bdr2);border-radius:var(--r);padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;background:var(--card2);color:var(--txt);font-family:var(--font);min-width:40px;transition:all 0.15s;}
+.pb:hover:not(:disabled){background:#3ABEBE;color:#003C5A;border-color:#3ABEBE;}
+.pb.ok{background:#1A9A7A;color:white;border-color:#1A9A7A;}
+.pb.bad{background:#D84040;color:white;border-color:#D84040;}
+.pb.hint{background:rgba(26,154,122,0.15);border-color:#1A9A7A;}
+.pb:disabled{cursor:default;}
+
+#res{display:none;text-align:center;padding:2rem 1rem;background:rgba(0,60,90,0.05);border:0.5px solid rgba(58,190,190,0.3);border-radius:var(--rl);margin-top:0.5rem;}
+#rs{font-size:30px;font-weight:600;color:var(--txt);margin-bottom:6px;}
+#rm{font-size:14px;color:var(--txt2);margin-bottom:20px;}
+.retry{background:#3ABEBE;color:#003C5A;border:none;border-radius:var(--r);padding:11px 24px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font);}
+.retry:hover{background:#2AAEAE;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <p class="sub">Interactive Activity · Dr. Doaa Najwat Al-Shuaibi · 2026</p>
+    <h1>Sort each task into the correct phase</h1>
+    <p class="desc">Tap the phase number that matches each task</p>
+    <div class="line"></div>
+  </div>
+
+  <div class="legend">
+    <div class="lc l1"><span>1</span><small>Programming</small></div>
+    <div class="lc l2"><span>2</span><small>Concept</small></div>
+    <div class="lc l3"><span>3</span><small>Docs</small></div>
+    <div class="lc l4"><span>4</span><small>Execution</small></div>
+    <div class="lc l5"><span>5</span><small>Evaluation</small></div>
+  </div>
+
+  <div class="meta">
+    <span id="prog">0 / 7</span>
+    <span id="pts"></span>
+  </div>
+
+  <div id="tc"></div>
+
+  <div id="res">
+    <p id="rs"></p>
+    <p id="rm"></p>
+    <button class="retry" onclick="init()">
+      <i class="ti ti-refresh" style="font-size:13px;vertical-align:-1px;margin-right:5px;"></i>Try Again
+    </button>
+  </div>
+
+</div>
+<script>
+const TASKS=[
+  {id:1,t:"Define the design problem and identify the type of project",a:1},
+  {id:2,t:"Research the client's needs, lifestyle, and preferences",a:1},
+  {id:3,t:"Analyze the site and create a zoning plan",a:2},
+  {id:4,t:"Develop the design concept, colors, and materials",a:2},
+  {id:5,t:"Prepare construction drawings and written specifications",a:3},
+  {id:6,t:"Coordinate with contractors and supervise on-site work",a:4},
+  {id:7,t:"Review the final result and collect client feedback",a:5}
+];
+const BC=["#003C5A","#3ABEBE","#C06080","#7070C0","#A09010"];
+let done=0,score=0;
+function shuf(a){return[...a].sort(()=>Math.random()-0.5);}
+function init(){
+  done=0;score=0;
+  const s=shuf(TASKS);
+  document.getElementById("prog").textContent="0 / "+TASKS.length;
+  document.getElementById("pts").textContent="";
+  document.getElementById("res").style.display="none";
+  document.getElementById("tc").innerHTML=s.map((t,i)=>`
+    <div class="tc" id="tc${t.id}" style="border-right:3px solid ${BC[i%BC.length]};">
+      <p id="tp${t.id}">${t.t}</p>
+      <div class="pr">
+        ${[1,2,3,4,5].map(n=>`<button class="pb" id="pb${t.id}_${n}" onclick="pick(${t.id},${n})">${n}</button>`).join('')}
+      </div>
+    </div>`).join('');
+}
+function pick(tid,num){
+  const task=TASKS.find(t=>t.id===tid);
+  const card=document.getElementById("tc"+tid);
+  if(card.classList.contains("ok")||card.classList.contains("bad"))return;
+  const isOk=num===task.a;
+  [1,2,3,4,5].forEach(n=>{
+    const b=document.getElementById("pb"+tid+"_"+n);
+    b.disabled=true;
+    if(n===num)b.classList.add(isOk?"ok":"bad");
+    if(!isOk&&n===task.a)b.classList.add("hint");
+  });
+  card.classList.add(isOk?"ok":"bad");
+  const p=document.getElementById("tp"+tid);
+  const icon=isOk
+    ?'<i class="ti ti-circle-check" style="color:#1A9A7A;margin-right:6px;font-size:15px;vertical-align:-2px;"></i>'
+    :'<i class="ti ti-circle-x" style="color:#D84040;margin-right:6px;font-size:15px;vertical-align:-2px;"></i>';
+  p.innerHTML=icon+p.textContent;
+  done++;
+  if(isOk){score++;document.getElementById("pts").textContent="✓ "+score+" correct";}
+  document.getElementById("prog").textContent=done+" / "+TASKS.length;
+  if(done===TASKS.length){
+    setTimeout(()=>{
+      const pct=Math.round(score/TASKS.length*100);
+      document.getElementById("rs").textContent=score+" / "+TASKS.length+" correct";
+      document.getElementById("rm").textContent=
+        pct===100?"Excellent! You know all 5 phases 🎯":
+        pct>=70?"Good job! Review the ones you missed.":
+        "Go back to the slides and try again 💪";
+      document.getElementById("res").style.display="block";
+    },700);
+  }
+}
+init();
+</script>
+</body>
+</html>
